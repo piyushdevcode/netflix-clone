@@ -111,3 +111,14 @@
     width: 75vw;
     max-width: 500px;
 }
+
+/* bootstrap fixes */
+btn:focus, a:focus
+{
+         outline: none;
+}
+.navbar-toggler:focus
+{
+         outline: none !important;
+         box-shadow: none;
+}
