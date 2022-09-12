@@ -48,7 +48,7 @@ function NetflixOriginals() {
   }
   return (
     <div>
-      <h1>Netflix Originals</h1>
+      <h3>Netflix Originals</h3>
       <div className="netflix-movieslist-container">
         {allMovies.map(function (ele) {
           // console.log(ele);

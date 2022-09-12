@@ -18,18 +18,24 @@ function App() {
     <TrailerContext.Provider value = {{trailerId,setTrailerId,showModal,setModal}}>
     <NavBar/>
     <Showcase/>
-    <NetflixOriginals/>
-    <Trending/>
-    <ActionMovies/>
     <MoviesList
        endpoint={`discover/tv/?api_key=${APIKEY}&with_network=123`}
-       title = 'My Title'/>
+       title = 'Netflix Originals' poster={true}/>
+    <MoviesList
+      endpoint={`trending/all/week?api_key=${APIKEY}&language=en-US`}
+      title = 'Trending'/>
     <MoviesList
        endpoint={`discover/tv/?api_key=${APIKEY}&with_network=123`}
        title = 'Action'/>
     <MoviesList
-       endpoint={`discover/tv/?api_key=${APIKEY}&with_network=123`}
-       title = 'Acaaation'/>
+       endpoint={`discover/movie/?api_key=${APIKEY}&with_genres=27`}
+       title = 'Drama'/>
+    <MoviesList
+       endpoint={`discover/movie/?api_key=${APIKEY}&with_genres=12`}
+       title = 'Recommended'/>
+    <MoviesList
+       endpoint={`discover/movie?api_key=${APIKEY}&with_genres=28`}
+       title = 'Fighting'/>
        <Trailer TrailerId={trailerId}/>
        </TrailerContext.Provider>
     </div>

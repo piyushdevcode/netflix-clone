@@ -3,7 +3,6 @@ import Axios from "axios";
 import axios from "axios";
 import { IMGBASEURL, BASEURL,APIKEY } from "./data";
 import "./Movies.css";
-import Youtube from "react-youtube"
 import movieTrailer from "movie-trailer"
 import Trailer from "./Trailer";
 import TrailerContext from "./context/TrailerContext";
@@ -15,7 +14,6 @@ function MoviesList(props) {
     const APIURL = BASEURL + endpoint;
 
   const [allMovies, setAllMovies] = React.useState([]);
-  // const [TrailerId,setTrailerId] = React.useState("");
   const {setTrailerId} = React.useContext(TrailerContext)
   const {showModal,setModal} = React.useContext(TrailerContext)
 
@@ -62,18 +60,19 @@ function MoviesList(props) {
   }
   return (
     <div>
-      <h1>{props.title}</h1>
+      <h3 className="category-title">{props.title}</h3>
       <div className="netflix-movieslist-container">
         {allMovies.map(function (ele) {
           // console.log(ele);
-          const imagePath = IMGBASEURL + ele.backdrop_path;
+          const imgId = props.poster ? ele.poster_path : ele.backdrop_path
+          const imagePath = IMGBASEURL + imgId;
           return (
             <>
             <div className="netflix-movie">
               <img src={imagePath} alt={ele.name} ></img>
               <div className="more-details">
-                <span classname="title">{ele.name}</span>
-                <button type="button" class="btn btn-primary btn-trailer" data-bs-toggle="modal" data-bs-target="#exampleModal"onClick={()=>{
+                <span classname="title">{ele.name || ele.title}</span>
+                <button type="button" class={`btn btn-primary btn-trailer ${props.poster? "btn-poster":""}`} data-bs-toggle="modal" data-bs-target="#exampleModal"onClick={()=>{
                   setModal(true)
                   playTrailer(ele)
                 }}>Play Trailer</button>

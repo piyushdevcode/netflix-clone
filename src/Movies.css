@@ -7,6 +7,7 @@
   position: relative;
   width: 100%;
   height: 500px;
+  margin-bottom: 1.4rem;
 }
 .main-details {
   position: absolute;
@@ -35,6 +36,7 @@
 }
 #nav-logo {
   width: 8%;
+  min-width: 60px;
 }
 
 .netflix-movieslist-container::-webkit-scrollbar {
@@ -68,6 +70,10 @@
   border: none;
   box-shadow: 0px 1px 4px 1px #eaeaea85;
 }
+.more-details .btn-poster {
+    left: 15%;
+    top: 59%;
+}
 .more-details .btn-trailer:hover {
   background-color: black;
   outline: 1px solid;
@@ -77,7 +83,9 @@
 .netflix-movie:hover .more-details {
   display: flex;
 }
-
+.category-title{
+    margin-left: 12px;
+}
 .more-details {
   position: absolute;
   inset: 0;
