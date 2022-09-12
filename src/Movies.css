@@ -1,0 +1,104 @@
+.main-img-container img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+.main-img-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+.main-details {
+  position: absolute;
+  left: 30px;
+  font-size: 2vh;
+  padding: 1.5rem;
+  top: 28.2%;
+  max-width: 50vw;
+  width: fit-content;
+  text-shadow: 1px 1px 3px black;
+  border-radius: 0.5rem;
+}
+.main-img-after {
+  background: #000000ba;
+  background: radial-gradient(transparent, black);
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.netflix-movie img {
+  height: 150px;
+}
+#nav-logo {
+  width: 8%;
+}
+
+.netflix-movieslist-container::-webkit-scrollbar {
+  overflow: hidden;
+}
+.netflix-movieslist-container {
+  display: flex;
+  overflow: scroll;
+  overflow-y: hidden;
+}
+.netflix-movie {
+  transition: transform ease-in-out 0.8s;
+  margin-left: 10px;
+  padding: 2rem 0;
+  position: relative;
+}
+.netflix-movie:hover {
+  transform: scale(1.3);
+  z-index: 1;
+  /* box-shadow: 1px 1px 2px 4px rgba(0, 0, 0, 0.466); */
+}
+
+.dropdown-item {
+  color: var(--bs-nav-link-color);
+}
+.btn-trailer {
+  position: absolute;
+  left: 37%;
+  top: 49%;
+  background-color: #00000070;
+  border: none;
+  box-shadow: 0px 1px 4px 1px #eaeaea85;
+}
+.more-details .btn-trailer:hover {
+  background-color: black;
+  outline: 1px solid;
+  box-shadow: none;
+}
+
+.netflix-movie:hover .more-details {
+  display: flex;
+}
+
+.more-details {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 48%);
+  /* left: 33%; */
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.more-details span {
+  text-shadow: 0px 2px 3px black, 0px -1px 3px;
+  top: 28%;
+  position: absolute;
+  letter-spacing: 1px;
+  text-align: center;
+}
+.netflix-movie .more-details,
+.more-details .btn {
+  font-size: 0.8em !important;
+}
+
+.main-details .main-overview{
+    letter-spacing: 1.4px;
+}

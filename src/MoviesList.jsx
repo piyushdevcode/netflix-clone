@@ -5,6 +5,8 @@ import { IMGBASEURL, BASEURL,APIKEY } from "./data";
 import "./Movies.css";
 import Youtube from "react-youtube"
 import movieTrailer from "movie-trailer"
+import Trailer from "./Trailer";
+import TrailerContext from "./context/TrailerContext";
 
 
 function MoviesList(props) {
@@ -13,7 +15,9 @@ function MoviesList(props) {
     const APIURL = BASEURL + endpoint;
 
   const [allMovies, setAllMovies] = React.useState([]);
-  const [TrailerId,setTrailerId] = React.useState("")
+  // const [TrailerId,setTrailerId] = React.useState("");
+  const {setTrailerId} = React.useContext(TrailerContext)
+  const {showModal,setModal} = React.useContext(TrailerContext)
 
   React.useEffect(function () {
     async function fetchData() {
@@ -37,21 +41,23 @@ function MoviesList(props) {
   }
   // to get the youtube trailer id of given movie
   function playTrailer(data){
-    console.log("heres trailer",data);
+    // console.log("heres trailer",data);
     console.log(typeof(data.name));
     // const mname = 'Hulk';
     const mname = data.name || data.original_name || data.title;
     movieTrailer(mname)
     .then(output=>{
-      console.log(output);
+      // console.log(output);
       const search = new URLSearchParams(new URL(output).search)
       console.log(search);
       const vid_Id = search.get("v")
-      console.log(vid_Id);
+      // console.log(vid_Id);
       setTrailerId(vid_Id)
     })
     .catch(err=>{
+      setTrailerId("KS2EztRMuRw") // Some placeholder ID
         console.log(err);
+        console.log("===Setting placeholderID");
     })
   }
   return (
@@ -62,45 +68,26 @@ function MoviesList(props) {
           // console.log(ele);
           const imagePath = IMGBASEURL + ele.backdrop_path;
           return (
+            <>
             <div className="netflix-movie">
-              <img src={imagePath} alt={ele.name} onClick={()=>{
-                playTrailer(ele)
-              }}></img>
+              <img src={imagePath} alt={ele.name} ></img>
+              <div className="more-details">
+                <span classname="title">{ele.name}</span>
+                <button type="button" class="btn btn-primary btn-trailer" data-bs-toggle="modal" data-bs-target="#exampleModal"onClick={()=>{
+                  setModal(true)
+                  playTrailer(ele)
+                }}>Play Trailer</button>
+                </div>
             </div>
+                </>
           );
         })}
+      {/* <!-- Button trigger modal --> */}
       </div>
+
+
+      {/* <Trailer TrailerId={TrailerId}/> */}
       {/* For movie Trailers */}
-      {TrailerId &&(
-        <>
-        {/* <!-- Button trigger modal --> */}
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Launch demo modal
-        </button>
-        
-        {/* <!-- Modal --> */}
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      
-      <Youtube videoId={TrailerId} opts={myOptions} onEnd={()=>{setTrailerId(null)}}/>
-    </>
-      )
-      }
     </div>
   );
 }
