@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import NavBar from './NavBar';
+import { APIKEY } from './data';
 import Showcase from './Showcase';
 import MoviesList from './MoviesList';
-import { APIKEY } from './data';
 import Trailer from './Trailer';
 import TrailerContext from './context/TrailerContext'
 function App() {

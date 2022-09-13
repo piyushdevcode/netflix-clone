@@ -1,4 +1,4 @@
-export const APIKEY = "746b1a103abaf0bd19b6c9d5eb9e8747"
+export const APIKEY = process.env.REACT_APP_API_KEY
 
 export const BASEURL = "https://api.themoviedb.org/3/"
 export const IMGBASEURL = "https://image.tmdb.org/t/p/original"
