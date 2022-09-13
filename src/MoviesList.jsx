@@ -66,7 +66,7 @@ function MoviesList(props) {
           return (
             <>
             <div className="netflix-movie">
-              <img src={imagePath} alt={ele.name} ></img>
+              <img src={imagePath} alt={ele.name || ele.title ||"movie-image"} ></img>
               <div className="more-details">
                 <span classname="title">{ele.name || ele.title}</span>
                 <button type="button" class={`btn btn-primary btn-trailer ${props.poster? "btn-poster":""}`} data-bs-toggle="modal" data-bs-target="#exampleModal"onClick={()=>{

@@ -15,19 +15,19 @@ function App() {
     <NavBar/>
     <Showcase/>
     <MoviesList
-       endpoint={`discover/tv/?api_key=${APIKEY}&with_network=123`}
+       endpoint={`discover/tv?api_key=${APIKEY}&with_network=123`}
        title = 'Netflix Originals' poster={true}/>
     <MoviesList
       endpoint={`trending/all/week?api_key=${APIKEY}&language=en-US`}
       title = 'Trending'/>
     <MoviesList
-       endpoint={`discover/tv/?api_key=${APIKEY}&with_network=123`}
+       endpoint={`discover/tv?api_key=${APIKEY}&with_network=123`}
        title = 'Action'/>
     <MoviesList
-       endpoint={`discover/movie/?api_key=${APIKEY}&with_genres=27`}
+       endpoint={`discover/movie?api_key=${APIKEY}&with_genres=27`}
        title = 'Drama'/>
     <MoviesList
-       endpoint={`discover/movie/?api_key=${APIKEY}&with_genres=12`}
+       endpoint={`discover/movie?api_key=${APIKEY}&with_genres=12`}
        title = 'Recommended'/>
     <MoviesList
        endpoint={`discover/movie?api_key=${APIKEY}&with_genres=28`}
