@@ -1,11 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import NetflixOriginals from './NetflixOriginals.jsx';
-import Trending  from './Trending';
-import ActionMovies from './ActionMovies';
 import NavBar from './NavBar';
-import Showcase from './Main';
+import Showcase from './Showcase';
 import MoviesList from './MoviesList';
 import { APIKEY } from './data';
 import Trailer from './Trailer';
@@ -36,7 +32,7 @@ function App() {
     <MoviesList
        endpoint={`discover/movie?api_key=${APIKEY}&with_genres=28`}
        title = 'Fighting'/>
-       <Trailer TrailerId={trailerId}/>
+       <Trailer/>
        </TrailerContext.Provider>
     </div>
   )

@@ -1,6 +1,26 @@
 body {
   background: black;
-  color: white
+  color: white;
+}
+/* for scrollbar */
+body::-webkit-scrollbar {
+  width: 17px;
+  background-color: rgb(34, 29, 29);
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 15px;
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 4px rgba(240, 241, 238, 0.376);
+  background-color: #080808;
+}
+
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 1px 1px 20px 2px rgb(0,0,0);
+  box-shadow: inset 1px 1px 20px 2px rgb(0,0,0);
+  background-color: rgb(94 92 92);
 }
 
 .App-header {

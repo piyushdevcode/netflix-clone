@@ -7,14 +7,13 @@ const TrendingNow = BASEURL + endpoint
 function Showcase() {
     const [MainMovie, setMovie] = React.useState({});
     const [AllMovies, setAllMovie] = React.useState([]);
-    let ele;
     React.useEffect(function () {
       async function fetchData() {
         const res = await Axios.get(TrendingNow);
         const random_idx = Math.floor(Math.random()*20)
         setAllMovie(res.data.results);
         setMovie(res.data.results[random_idx]);
-        console.log(res);
+        // console.log(res);
     }
     fetchData();
 }, []);

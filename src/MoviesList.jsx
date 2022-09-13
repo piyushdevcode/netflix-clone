@@ -40,14 +40,12 @@ function MoviesList(props) {
   // to get the youtube trailer id of given movie
   function playTrailer(data){
     // console.log("heres trailer",data);
-    console.log(typeof(data.name));
-    // const mname = 'Hulk';
     const mname = data.name || data.original_name || data.title;
     movieTrailer(mname)
     .then(output=>{
       // console.log(output);
       const search = new URLSearchParams(new URL(output).search)
-      console.log(search);
+      // console.log(search);
       const vid_Id = search.get("v")
       // console.log(vid_Id);
       setTrailerId(vid_Id)
@@ -55,7 +53,6 @@ function MoviesList(props) {
     .catch(err=>{
       setTrailerId("KS2EztRMuRw") // Some placeholder ID
         console.log(err);
-        console.log("===Setting placeholderID");
     })
   }
   return (
